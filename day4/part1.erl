@@ -1,6 +1,8 @@
 -module(part1).
 -export([doproblem/0]).
 
+%%%% THIS DOESNT WORK BTW :^)
+
 to_int(S) ->
     {N, _} = string:to_integer(S),
     N.
