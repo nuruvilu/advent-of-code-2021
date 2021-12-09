@@ -65,10 +65,7 @@ def solve(input_list: list):
             if len(c) == 1:
                 if table['b'] in f:
                     table['a'], table['b'] = table['b'], table['a']
-        for c in 'abcdefg':
-            if c not in flip(table):
                 table['g'] = c
-                break
 
         bettertab = final_t(table)
 
