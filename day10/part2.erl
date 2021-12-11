@@ -33,9 +33,8 @@ solve(List) ->
     Scores = lists:map(fun(S) -> score(S, []) end, List),
     Sorted = lists:sort(lists:filter(fun(S) -> S =/= corrupt end, Scores)),
     MidIndex = length(Sorted) div 2 + 1,
-    case length(Sorted) of
-        N when N rem 2 =:= 1 -> lists:nth(MidIndex, Sorted);
-        N when N rem 2 =:= 0 ->
+    if  length(Sorted) rem 2 =:= 1 -> lists:nth(MidIndex, Sorted);
+        length(Sorted) rem 2 =:= 0 ->
             (lists:nth(MidIndex, Sorted) + lists:nth(MidIndex + 1, Sorted)) / 2
     end.
 
