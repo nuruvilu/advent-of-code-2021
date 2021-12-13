@@ -22,7 +22,7 @@ def solve(input_list: list):
         newdots = set()
         for x, y in dots:
             if axis == 'x':
-                newx = val - (x - val) if x > val else x 
+                newx = val - (x - val) if x > val else x
                 newdots.add((newx, y))
             else:
                 newy = val - (y - val) if y > val else y
