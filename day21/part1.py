@@ -2,11 +2,9 @@ import math
 from functools import lru_cache
 
 
-@lru_cache()
 def ahh(n):
-    while n > 10:
-        n -= 10
-    return n
+    x = n % 10
+    return x if x else 10
 
 
 def next_die(n):

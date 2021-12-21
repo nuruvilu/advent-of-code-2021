@@ -4,11 +4,9 @@ from collections import defaultdict
 from itertools import product
 
 
-@lru_cache()
-def ahh(n):  # why even bother using your brain when u can do this???
-    while n > 10:
-        n -= 10
-    return n
+def ahh(n):
+    x = n % 10
+    return x if x else 10
 
 
 def solve(input_list: list):
