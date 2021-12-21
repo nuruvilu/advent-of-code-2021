@@ -8,8 +8,7 @@ def ahh(n):
 
 
 def solve(input_list: list):
-    p = defaultdict(int)
-    p[(7, 2, 0, 0)] = 1
+    p = {(7, 2, 0, 0): 1}
     turn = 0
     p1w, p2w = 0, 0
     newu = [sum(u) for u in product([1, 2, 3], [1, 2, 3], [1, 2, 3])]
