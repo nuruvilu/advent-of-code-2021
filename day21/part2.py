@@ -1,5 +1,3 @@
-import math
-from functools import lru_cache
 from collections import defaultdict
 from itertools import product
 
@@ -15,7 +13,6 @@ def solve(input_list: list):
     turn = 0
     p1w, p2w = 0, 0
     while p:
-        #print(len(p))
         newp = defaultdict(int)
         for (p1p, p2p, p1s, p2s), c in p.items():
             newu = product([1, 2, 3], [1, 2, 3], [1, 2, 3])
@@ -38,5 +35,4 @@ def solve(input_list: list):
 
 
 with open('input.txt', 'r') as f:
-    #input_list = [s for s in f.read().strip().split('\n')]
     print(solve(None))
