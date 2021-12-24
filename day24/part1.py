@@ -7,6 +7,9 @@ def val(vars_, token):
     return int(token)
 
 
+# dont use this, solve on paper instead
+
+
 def do_stuff(prog, i):
     mn = 0
     while True:
