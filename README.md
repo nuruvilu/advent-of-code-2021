@@ -1,3 +1,5 @@
-Advent of Code 2021 solutions in Python, Clojure and sometimes Erlang.
+Advent of Code.
 
-The Python code is written in the moment and not sanitized afterward.
+2021 - Python
+
+2016 - Clojure
