@@ -76,3 +76,11 @@ def readlines(path: str) -> [str]:
 
 def read(path: str) -> str:
     return Path(path).read_text()
+
+
+def readstanzas(path: str) -> [[str]]:
+    return [s.split('\n') for s in read(path).split('\n\n')]
+
+
+def readstanzanums(path: str) -> [[int]]:
+    return [[int(e) for e in s] for s in readstanzas(path)]

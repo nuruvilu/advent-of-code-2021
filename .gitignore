@@ -2,3 +2,4 @@
 .*/
 *.beam
 */inputs/*
+**/__pycache__/*
