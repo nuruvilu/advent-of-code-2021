@@ -11,9 +11,19 @@ import common as aoc
 
 
 def solve(inp):
-    pass
+    s = 0
+    for group in aoc.partition(inp, 3):
+        top, mid = set(group[0]), set(group[1])
+        for c in group[2]:
+            if c in top and c in mid:
+                if c.islower():
+                    s += ord(c) - ord('a') + 1
+                else:
+                    s += ord(c) - ord('A') + 27
+                break
+    return s
 
 
 if __name__ == '__main__':
-    inp = aoc.readnums('input.txt')
+    inp = aoc.readlines('input.txt')
     print(solve(inp))

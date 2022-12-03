@@ -1,8 +1,11 @@
 import math
 import operator
 
+from dataclasses import dataclass, field
 from functools import reduce
+from heapq import heappush, heappop
 from pathlib import Path
+from typing import Any
 
 
 def dist(p1, p2) -> float:
@@ -84,3 +87,46 @@ def readstanzas(path: str) -> [[str]]:
 
 def readstanzanums(path: str) -> [[int]]:
     return [[int(e) for e in s] for s in readstanzas(path)]
+
+
+@dataclass(order=True)
+class PriorityItem:
+    priority: int
+    item: Any = field(compare=False)
+    path: list = field(compare=False)
+    total_weight: int = field(compare=False)
+
+
+def astar(start, step, h, is_target):
+    '''returns the priority queue item that matches is_target'''
+    pqueue = []
+    visited = set()
+    heappush(pqueue, PriorityItem(h(start), start, [], 0))
+    while pqueue:
+        curr = heappop(pqueue)
+        if curr.item in visited:
+            continue
+        if is_target(curr.item):
+            return curr
+        visited.add(curr.item)
+        for weight, item in step(curr):
+            if item not in visited:
+                total_weight = weight + curr.total_weight
+                to_add = PriorityItem(
+                    h(item) + total_weight,
+                    item,
+                    curr.path + [curr.item],
+                    total_weight
+                )
+                heappush(pqueue, to_add)
+    raise RuntimeError('Exhausted data set without finding target!')
+
+
+def dijkstra(start, step, is_target):
+    '''returns the priority queue item that matches is_target'''
+    return astar(start, step, lambda _: 0, is_target)
+
+
+def bfs(start, step, is_target):
+    '''returns the priority queue item that matches is_target'''
+    return dijkstra(start, lambda x: (1, step(x)), is_target)
