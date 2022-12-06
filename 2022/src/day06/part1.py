@@ -11,9 +11,17 @@ import common as aoc
 
 
 def solve(inp):
-    pass
+    slider = []
+    for i, c in enumerate(inp, start=1):
+        if len(slider) < 3:
+            slider.append(c)
+        elif c not in slider and len(set(slider)) == 3:
+            return i
+        else:
+            slider = slider[1:]
+            slider.append(c)
 
 
 if __name__ == '__main__':
-    inp = aoc.readnums('input.txt')
+    inp = aoc.read('input.txt')
     print(solve(inp))
