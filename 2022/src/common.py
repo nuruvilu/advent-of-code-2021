@@ -69,6 +69,24 @@ def adjsdiags2(point) -> [tuple]:
     ]
 
 
+def udlr_xy(direction: str, point: (int, int)) -> (int, int):
+    if direction == 'U':
+        return (point[0], point[1] + 1)
+    elif direction == 'D':
+        return (point[0], point[1] - 1)
+    elif direction == 'R':
+        return (point[0] + 1, point[1])
+    elif direction == 'L':
+        return (point[0] - 1, point[1])
+    raise ValueError(f'Invalid direction={direction}, should be U,D,R,L')
+
+
+def udlr_ij(direction: str, index: (int, int)) -> (int, int):
+    i, j = index
+    jprime, iprime = udlr_xy(direction, (j, i))
+    return iprime, jprime
+
+
 def readnums(path: str) -> [int]:
     return [int(line) for line in readlines(path)]
 
@@ -87,6 +105,14 @@ def readstanzas(path: str) -> [[str]]:
 
 def readstanzanums(path: str) -> [[int]]:
     return [[int(e) for e in s] for s in readstanzas(path)]
+
+
+def readgrid(path: str) -> [[str]]:
+    return [list(line) for line in readlines(path)]
+
+
+def readgridnums(path: str) -> [[int]]:
+    return [[int(c) for c in line] for line in readgrid(path)]
 
 
 @dataclass(order=True)
