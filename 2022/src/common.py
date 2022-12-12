@@ -155,4 +155,4 @@ def dijkstra(start, step, is_target):
 
 def bfs(start, step, is_target):
     '''returns the priority queue item that matches is_target'''
-    return dijkstra(start, lambda x: (1, step(x)), is_target)
+    return dijkstra(start, lambda x: ((1, y) for y in step(x)), is_target)
