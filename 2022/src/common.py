@@ -87,6 +87,23 @@ def udlr_ij(direction: str, index: (int, int)) -> (int, int):
     return iprime, jprime
 
 
+def do_arithmetic(operation: str,
+                  left: float | int,
+                  right: float | int) -> float | int:
+    if operation == '+':
+        return left + right
+    elif operation == '-':
+        return left - right
+    elif operation == '*':
+        return left * right
+    elif operation == '/':
+        return left / right
+    elif operation == '//':
+        return left // right
+    else:
+        raise ValueError(f'Invalid operation={operation}')
+
+
 def readnums(path: str) -> [int]:
     return [int(line) for line in readlines(path)]
 

@@ -128,7 +128,7 @@ def traverse_edge(facing, pos):
             nxt = (faces[new_face][1] - abs_pos[0], faces[new_face][2])
         elif new_facing == 'U':
             nxt = (faces[new_face][1] - abs_pos[0], faces[new_face][3])
-    elif True:
+    elif paired(facing, new_facing):
         if new_facing == 'L':
             nxt = (faces[new_face][1], faces[new_face][2] + abs_pos[0])
         elif new_facing == 'R':
