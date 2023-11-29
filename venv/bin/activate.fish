@@ -33,7 +33,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/home/cristian/Projects/foss/advent-of-code/2023/src/venv"
+set -gx VIRTUAL_ENV "/home/cristian/Projects/foss/advent-of-code/venv"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH
