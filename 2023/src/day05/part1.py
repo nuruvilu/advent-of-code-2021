@@ -24,11 +24,10 @@ def solve(inp):
     for seed in seeds:
         x = seed
         for step in almanac:
-            done = False
             for dest, src, rng in step:
-                if not done and x >= src and x <= src + rng:
+                if x >= src and x <= src + rng:
                     x = dest + (x - src)
-                    done = True
+                    break
         loc = min(x, loc)
     return loc
 

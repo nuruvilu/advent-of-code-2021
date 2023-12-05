@@ -24,11 +24,10 @@ def handle_seeds(seed_pair):
             print(((seed - start) / rrr) * 100)
         x = seed
         for step in almanac:
-            done = False
             for dest, src, rng in step:
-                if not done and x >= src and x <= src + rng:
+                if x >= src and x <= src + rng:
                     x = dest + (x - src)
-                    done = True
+                    break
         loc = min(x, loc)
     return loc
 
