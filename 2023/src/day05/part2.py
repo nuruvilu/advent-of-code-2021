@@ -40,11 +40,6 @@ def solve(inp):
         almanac.append([])
         for row in mapping[1:]:
             almanac[-1].append(tuple(map(int, row.split())))
-    new_seeds = []
-    for start, rrr in seeds:
-        r4 = rrr // 4
-        for n in range(4):
-            new_seeds.append((start + r4 * n, rrr - r4 * (n - 1)))
     with Pool(len(seeds)) as p:
         results = p.map(handle_seeds, seeds)
         return min(results)
