@@ -8,6 +8,10 @@ from pathlib import Path
 from typing import Any
 
 
+def lcm(x: int, y: int) -> int:
+    return abs(x * y) // math.gcd(x, y)
+
+
 def dist(p1, p2) -> float:
     sq_diffs = ((x1 - x2) * (x1 - x2) for x1, x2 in zip(p1, p2))
     return math.sqrt(reduce(operator.add, sq_diffs, 0))
