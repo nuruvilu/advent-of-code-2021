@@ -29,12 +29,7 @@ def solve(inp):
                 tiers[-1].append(n - curr)
                 curr = n
             tier += 1
-        z = [t[0] for t in reversed(tiers)]
-        x = z[0]
-        for k in z:
-            x = k - x
-        print(x)
-        total += x
+        total += reduce(lambda a, b: b - a, (t[0] for t in reversed(tiers)))
     return total
 
 
