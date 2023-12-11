@@ -156,7 +156,7 @@ def astar(start, step, h, is_target):
         curr = heappop(pqueue)
         if curr.item in visited:
             continue
-        if is_target(curr.item):
+        if is_target(curr):
             return curr
         visited.add(curr.item)
         for weight, item in step(curr):

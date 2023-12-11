@@ -108,7 +108,8 @@ def solve(inp):
         print(i / len(inp))
         for j in range(len(inp[0])):
             if (i, j) not in loop:
-                def is_target(p):
+                def is_target(pi):
+                    p = pi.item
                     for pp in aoc.adjsdiags2(p):
                         if not aoc.inbounds2(pp[0], pp[1], len(biggrid), len(biggrid[0])):
                             return True
