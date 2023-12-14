@@ -45,6 +45,14 @@ def inbounds3(x, y, z, maxx, maxy, maxz) -> bool:
     return 0 <= x < maxx and 0 <= y < maxy and 0 <= z < maxz
 
 
+def rotate_counterclock( m ):
+    return [[m[j][i] for j in range(len(m))] for i in range(len(m[0])-1,-1,-1)]
+
+
+def rotate_clock(m):
+    return [list(reversed(col)) for col in zip(*m)]
+
+
 def emplace(lst: list | tuple, val, i: int) -> list:
     new_list = list(lst)
     new_list[i] = val

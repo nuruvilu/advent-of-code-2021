@@ -13,10 +13,21 @@ from aocd import get_data
 
 
 def solve(inp):
-    return None
+    better = aoc.rotate_counterclock(inp)
+    total = 0
+    for row in better:
+        last_barrier = -1
+        for j, item in enumerate(row):
+            if item == 'O':
+                last_barrier += 1
+                total += len(row) - last_barrier
+            elif item == '#':
+                last_barrier = j
+
+    return total
 
 
 if __name__ == '__main__':
-    # sample = aoc.read(Path('sample.txt'))
-    inp = aoc.read(get_data(day=14, year=2023))
+    #inp = aoc.readlines(Path('sample.txt'))
+    inp = aoc.readlines(get_data(day=14, year=2023))
     print(solve(inp))
