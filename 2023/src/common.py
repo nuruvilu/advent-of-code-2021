@@ -81,15 +81,15 @@ def adjsdiags2(point) -> [tuple]:
     ]
 
 
-def udlr_xy(direction: str, point: (int, int)) -> (int, int):
+def udlr_xy(direction: str, point: (int, int), dist: int=1) -> (int, int):
     if direction == 'U':
-        return (point[0], point[1] + 1)
+        return (point[0], point[1] + dist)
     elif direction == 'D':
-        return (point[0], point[1] - 1)
+        return (point[0], point[1] - dist)
     elif direction == 'R':
-        return (point[0] + 1, point[1])
+        return (point[0] + dist, point[1])
     elif direction == 'L':
-        return (point[0] - 1, point[1])
+        return (point[0] - dist, point[1])
     raise ValueError(f'Invalid direction={direction}, should be U,D,R,L')
 
 
