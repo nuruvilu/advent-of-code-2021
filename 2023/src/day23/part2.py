@@ -39,8 +39,6 @@ def solve(inp):
     while forks:
         print(forks[-1].steps)
         #print([len(s) for p, s in forks])
-        if len(forks) > MAX_FORKS:
-            forks = sorted(forks, key=lambda f: len(f[1]), reverse=True)[:MAX_FORKS]
         new_forks = []
         for fork in forks:
             #print(len(seen))
